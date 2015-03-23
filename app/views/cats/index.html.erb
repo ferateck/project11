@@ -1,0 +1,37 @@
+<h1>Listing cats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>Claw status</th>
+      <th>Healthy</th>
+      <th>Health issues</th>
+      <th>Likes other cats</th>
+      <th>Gets along with other animals</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cats.each do |cat| %>
+      <tr>
+        <td><%= cat.name %></td>
+        <td><%= cat.breed %></td>
+        <td><%= cat.claw_status %></td>
+        <td><%= cat.healthy %></td>
+        <td><%= cat.health_issues %></td>
+        <td><%= cat.likes_other_cats %></td>
+        <td><%= cat.gets_along_with_other_animals %></td>
+        <td><%= link_to 'Show', cat %></td>
+        <td><%= link_to 'Edit', edit_cat_path(cat) %></td>
+        <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cat', new_cat_path %>

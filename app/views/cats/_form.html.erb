@@ -1,0 +1,45 @@
+<%= form_for(@cat) do |f| %>
+  <% if @cat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cat.errors.count, "error") %> prohibited this cat from being saved:</h2>
+
+      <ul>
+      <% @cat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :breed %><br>
+    <%= f.text_field :breed %>
+  </div>
+  <div class="field">
+    <%= f.label :claw_status %><br>
+    <%= f.select :claw_status, options_for_select(["has claws", "No claws", "Has claws (back only)"]) %>
+  </div>
+  <div class="field">
+    <%= f.label :healthy %><br>
+    <%= f.check_box :healthy %>
+  </div>
+  <div class="field">
+    <%= f.label :health_issues %><br>
+    <%= f.text_area :health_issues %>
+  </div>
+  <div class="field">
+    <%= f.label :likes_other_cats %><br>
+    <%= f.check_box :likes_other_cats %>
+  </div>
+  <div class="field">
+    <%= f.label :gets_along_with_other_animals %><br>
+    <%= f.check_box :gets_along_with_other_animals %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

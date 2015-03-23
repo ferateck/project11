@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cats
+
   root 'static#home'
 
   get '/about' => 'static#about'

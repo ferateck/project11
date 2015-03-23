@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cat.name %>
+</p>
+
+<p>
+  <strong>Breed:</strong>
+  <%= @cat.breed %>
+</p>
+
+<p>
+  <strong>Claw status:</strong>
+  <%= @cat.claw_status %>
+</p>
+
+<p>
+  <strong>Healthy:</strong>
+  <%= @cat.healthy %>
+</p>
+
+<p>
+  <strong>Health issues:</strong>
+  <%= @cat.health_issues %>
+</p>
+
+<p>
+  <strong>Likes other cats:</strong>
+  <%= @cat.likes_other_cats %>
+</p>
+
+<p>
+  <strong>Gets along with other animals:</strong>
+  <%= @cat.gets_along_with_other_animals %>
+</p>
+
+<%= link_to 'Edit', edit_cat_path(@cat) %> |
+<%= link_to 'Back', cats_path %>
