@@ -6,12 +6,23 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<% if user_signed_in? %>
+  <!-- <li>Signed in in as <%= current_user.email %></li> -->
+  <li><%= link_to "Sign Out", sign_out_path, method: :delete %></li>
+<% else %>
+  <li><%= link_to "Sign In", sign_in_path %></li>
+<% end %>
 <ul>
   <li><%= link_to 'Home', root_path %></li>
   <li><%= link_to 'About', about_path %></li>
   <li><%= link_to 'Cat Pictures', cat_pictures_path %></li>
   <li><%= link_to 'Cat Directory', cats_path %></li>
 </ul>
+<% flash.each do |type, message| %>
+  <div class="<%= type %>">
+    <p><%= message %></p>
+  </div>
+<% end %>
 <body>
 
 <%= yield %>
